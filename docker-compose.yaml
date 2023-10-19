@@ -1,0 +1,13 @@
+# Docker-Compose
+version: '3'
+
+services:
+  mongo:
+    image: mongodb/mongodb-community-server
+    ports:
+      - 27017:27017
+    volumes:
+      - udemy-mern:/data/db
+
+volumnes:
+  udemy-mern:
