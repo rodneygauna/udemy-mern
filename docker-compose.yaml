@@ -6,8 +6,12 @@ services:
     image: mongodb/mongodb-community-server
     ports:
       - 27017:27017
+    environment:
+      MONGODB_INIT_DB_ROOT_USERNAME: ${MONGODB_INIT_DB_ROOT_USERNAME}
+      MONGODB_INIT_DB_ROOT_PASSWORD: ${MONGODB_INIT_DB_ROOT_PASSWORD}
     volumes:
       - udemy-mern:/data/db
+      - ./mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh:ro
 
-volumnes:
+volumes:
   udemy-mern:
