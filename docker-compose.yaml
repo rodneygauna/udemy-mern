@@ -1,17 +1,10 @@
-# Docker-Compose
 version: '3'
 
 services:
-  mongo:
-    image: mongodb/mongodb-community-server
+  mongodb:
+    image: mongo:latest
     ports:
-      - 27017:27017
+      - "27017:27017"
     environment:
-      MONGODB_INIT_DB_ROOT_USERNAME: ${MONGODB_INIT_DB_ROOT_USERNAME}
-      MONGODB_INIT_DB_ROOT_PASSWORD: ${MONGODB_INIT_DB_ROOT_PASSWORD}
-    volumes:
-      - udemy-mern:/data/db
-      - ./mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh:ro
-
-volumes:
-  udemy-mern:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
